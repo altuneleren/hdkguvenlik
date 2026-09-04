@@ -15,8 +15,17 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "HDK Güvenlik | Alarm ve Kamera Güvenlik Sistemleri",
   description:
-    "İşletmenizi ileriye ",
-  keywords: ["Yapay Zeka", "Bulut", "Cloud", "SaaS", "Next.js", "Otomasyon"],
+    "HDK Güvenlik ile ev ve iş yerleriniz için yüksek çözünürlüklü kamera sistemleri, akıllı alarm çözümleri ve ücretsiz yerinde keşif hizmeti.",
+  keywords: [
+    "HDK Güvenlik",
+    "Güvenlik Kamerası",
+    "Kamera Sistemleri",
+    "Alarm Sistemleri",
+    "Hırsız Alarmı",
+    "Yangın Alarmı",
+    "Ücretsiz Keşif",
+    "IP Kamera",
+  ],
 };
 
 export default function RootLayout({

@@ -176,7 +176,7 @@ export default function InspectionForm() {
                   <input
                     type="text"
                     required
-                    placeholder="Örn: İstanbul / Kadıköy"
+                    placeholder="Örn: Amasya / Merkez"
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                     className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-all"
