@@ -46,7 +46,7 @@ export default function UnderConstruction() {
       {/* Top Header */}
       <header className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10 flex items-center justify-between">
         <div className="flex items-center">
-          <HDKLogo height={46} variant="red-d" />
+          <HDKLogo height={42} theme="dark" showTagline={true} />
         </div>
 
         <div className="flex items-center gap-3">

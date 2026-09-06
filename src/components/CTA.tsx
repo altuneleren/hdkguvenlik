@@ -8,7 +8,7 @@ export default function CTA() {
     encodeURIComponent("Merhaba HDK Güvenlik, kamera ve güvenlik sistemleri için ücretsiz keşif ve fiyat teklifi almak istiyorum.");
 
   return (
-    <section id="cta" className="py-20 bg-white">
+    <section id="cta" className="py-20 bg-white dark:bg-slate-950 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-3xl bg-gradient-to-r from-zinc-950 via-slate-900 to-zinc-950 px-6 py-16 sm:p-16 overflow-hidden shadow-2xl text-center text-white border border-slate-800">
           {/* Background Decorative Glows */}

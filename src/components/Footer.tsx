@@ -4,33 +4,33 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
-    product: [
-      { name: "Özellikler", href: "#ozellikler" },
-      { name: "Yapay Zeka Motoru", href: "#cozumler" },
-      { name: "Bulut Dağıtım", href: "#cozumler" },
-      { name: "Fiyatlandırma", href: "#fiyatlar" },
-      { name: "Sürüm Notları (Changelog)", href: "#" },
+    packages: [
+      { name: "4 Kameralı Güvenlik Seti", href: "/#fiyatlar" },
+      { name: "8 Kameralı Güvenlik Seti", href: "/#fiyatlar" },
+      { name: "16 Kameralı Güvenlik Seti", href: "/#fiyatlar" },
+      { name: "Ücretsiz Yerinde Keşif", href: "/#kesif-formu" },
+      { name: "Kamera Özellikleri", href: "/#ozellikler" },
     ],
-    solutions: [
-      { name: "SaaS Girişimleri", href: "#" },
-      { name: "Fintech & E-ticaret", href: "#" },
-      { name: "Kurumsal Dönüşüm", href: "#" },
-      { name: "Yazılım Ajansları", href: "#" },
-      { name: "Geliştirici Araçları", href: "#" },
+    services: [
+      { name: "Ev & Villa Kamera Sistemleri", href: "/#fiyatlar" },
+      { name: "İş Yeri & Mağaza Güvenliği", href: "/#fiyatlar" },
+      { name: "Fabrika & Tesis Projeleri", href: "/#fiyatlar" },
+      { name: "Akıllı Alarm Sistemleri", href: "/#kesif-formu" },
+      { name: "7/24 Mobil Canlı İzleme", href: "/#ozellikler" },
     ],
     company: [
-      { name: "Hakkımızda", href: "#" },
-      { name: "Kariyer", href: "#" },
-      { name: "Basın Kiti", href: "#" },
-      { name: "Blog & Makaleler", href: "#" },
-      { name: "İletişim", href: "#" },
+      { name: "HDK Güvenlik Hakkında", href: "/#ozellikler" },
+      { name: "Amasya & Çevre İller", href: "/#kesif-formu" },
+      { name: "Sıkça Sorulan Sorular", href: "/#sss" },
+      { name: "WhatsApp Canlı Destek", href: "https://wa.me/905372568756" },
+      { name: "Telefon: 0537 256 87 56", href: "tel:+905372568756" },
     ],
     legal: [
-      { name: "Gizlilik Politikası", href: "#" },
-      { name: "Kullanım Koşulları", href: "#" },
-      { name: "Güvenlik & SOC-2", href: "#" },
-      { name: "KVKK Aydınlatma Metni", href: "#" },
-      { name: "Çerez Tercihleri", href: "#" },
+      { name: "2 Yıl Birebir Değişim Garantisi", href: "/garanti-kosullari" },
+      { name: "Anahtar Teslim Montaj Sözleşmesi", href: "/montaj-sozlesmesi" },
+      { name: "Gizlilik & Güvenlik Politikası", href: "/gizlilik-politikasi" },
+      { name: "KVKK Aydınlatma Metni", href: "/kvkk" },
+      { name: "Teknik Servis & Destek", href: "/teknik-servis" },
     ],
   };
 
@@ -40,16 +40,16 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-12 gap-8 pb-12 border-b border-slate-800/80">
           {/* Brand Info */}
           <div className="col-span-2 md:col-span-4 space-y-4">
-            <a href="#" className="flex items-center">
-              <HDKLogo height={40} variant="red-d" />
+            <a href="/" className="inline-flex items-center group">
+              <HDKLogo height={36} theme="dark" showTagline={true} />
             </a>
             <p className="text-sm text-slate-400 max-w-md leading-relaxed">
               Siz sevdiklerinize ve hedeflerinize odaklanırken, güvenliğinizi biz devralıyoruz. HDK Güvenlik ile görünmez bir koruma kalkanının ardında, sınırları değil, sadece huzuru hissedin. Güvenli geleceğinize bugünden atılan modern imza.
             </p>
-            <div className="pt-2 flex items-center gap-4 text-xs text-slate-500">
-              <span className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                Tüm Sistemler Operasyonel
+            <div className="pt-2 flex items-center gap-4 text-xs text-slate-400">
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                7/24 Kesintisiz Güvenlik & Teknik Destek
               </span>
             </div>
           </div>
@@ -57,10 +57,10 @@ export default function Footer() {
           {/* Links Column 1 */}
           <div className="col-span-1 md:col-span-2">
             <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-4">
-              Ürün
+              Kamera Paketleri
             </h4>
             <ul className="space-y-2.5 text-sm">
-              {footerLinks.product.map((item) => (
+              {footerLinks.packages.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
@@ -76,10 +76,10 @@ export default function Footer() {
           {/* Links Column 2 */}
           <div className="col-span-1 md:col-span-2">
             <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-4">
-              Çözümler
+              Hizmet Alanları
             </h4>
             <ul className="space-y-2.5 text-sm">
-              {footerLinks.solutions.map((item) => (
+              {footerLinks.services.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
@@ -133,16 +133,21 @@ export default function Footer() {
 
         {/* Bottom copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {currentYear} Novatech Inc. Tüm hakları saklıdır.</p>
+          <p>© {currentYear} HDK Güvenlik Sistemleri. Tüm hakları saklıdır.</p>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-slate-400 transition-colors">
-              Güvenlik Bildirisi
+            <a href="/garanti-kosullari" className="hover:text-slate-300 transition-colors">
+              Garanti & İade Koşulları
             </a>
-            <a href="#" className="hover:text-slate-400 transition-colors">
-              Sistem Durumu
+            <a href="/#kesif-formu" className="hover:text-slate-300 transition-colors">
+              Ücretsiz Keşif Talebi
             </a>
-            <a href="#" className="hover:text-slate-400 transition-colors">
-              API Dökümantasyonu
+            <a 
+              href="https://wa.me/905372568756" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-emerald-400 transition-colors font-medium"
+            >
+              WhatsApp Destek
             </a>
           </div>
         </div>

@@ -89,33 +89,33 @@ export default function Pricing() {
   ];
 
   return (
-    <section id="fiyatlar" className="py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50/60 relative">
+    <section id="fiyatlar" className="py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50/60 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 transition-colors duration-300 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-100 text-red-700 text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
-            <ShieldCheck className="w-4 h-4 text-red-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 dark:bg-red-950/60 border border-red-100 dark:border-red-900/60 text-red-700 dark:text-red-400 text-xs font-semibold uppercase tracking-wider mb-4 shadow-xs">
+            <ShieldCheck className="w-4 h-4 text-red-600 dark:text-red-400" />
             Anahtar Teslim Kamera Paketleri
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             İhtiyacınıza Uygun Güvenlik Kamera Setleri
           </h2>
-          <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed">
+          <p className="mt-4 text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
             Aylık aidat, abonelik veya sürpriz fatura yok. Kamera, kayıt cihazı, disk ve uzman montaj dahil komple anahtar teslim güvenlik sistemleri.
           </p>
 
           {/* Value Guarantee Pill */}
-          <div className="mt-6 inline-flex flex-wrap items-center justify-center gap-2 sm:gap-4 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-medium">
+          <div className="mt-6 inline-flex flex-wrap items-center justify-center gap-2 sm:gap-4 px-4 py-2 rounded-full bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200/80 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-300 text-xs font-medium">
             <span className="flex items-center gap-1.5 font-semibold">
-              <Check className="w-3.5 h-3.5 text-emerald-600" /> Tek Seferlik Ödeme
+              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> Tek Seferlik Ödeme
             </span>
-            <span className="hidden sm:inline text-emerald-300">•</span>
+            <span className="hidden sm:inline text-emerald-300 dark:text-emerald-700">•</span>
             <span className="flex items-center gap-1.5 font-semibold">
-              <Check className="w-3.5 h-3.5 text-emerald-600" /> Aylık / Yıllık Aidat Yok
+              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> Aylık / Yıllık Aidat Yok
             </span>
-            <span className="hidden sm:inline text-emerald-300">•</span>
+            <span className="hidden sm:inline text-emerald-300 dark:text-emerald-700">•</span>
             <span className="flex items-center gap-1.5 font-semibold">
-              <Check className="w-3.5 h-3.5 text-emerald-600" /> 2 Yıl Birebir Değişim Garantisi
+              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> 2 Yıl Birebir Değişim Garantisi
             </span>
           </div>
         </div>
@@ -125,10 +125,10 @@ export default function Pricing() {
           {plans.map((plan, idx) => (
             <div
               key={idx}
-              className={`relative rounded-3xl p-7 sm:p-8 bg-white border transition-all duration-300 flex flex-col justify-between ${
+              className={`relative rounded-3xl p-7 sm:p-8 bg-white dark:bg-slate-900/90 border transition-all duration-300 flex flex-col justify-between ${
                 plan.popular
                   ? "border-red-500 shadow-2xl ring-2 ring-red-500/20 lg:-translate-y-3"
-                  : "border-slate-200/90 shadow-md hover:shadow-xl hover:border-slate-300"
+                  : "border-slate-200/90 dark:border-slate-800 shadow-md hover:shadow-xl hover:border-slate-300 dark:hover:border-slate-700"
               }`}
             >
               {plan.popular && (
@@ -142,51 +142,51 @@ export default function Pricing() {
                 {/* Header & Description */}
                 <div className="mb-5">
                   {!plan.popular && (
-                    <span className="inline-block text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                    <span className="inline-block text-[11px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">
                       {plan.badge}
                     </span>
                   )}
-                  <h3 className="text-2xl font-bold text-slate-900 mb-1.5">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-1.5">
                     {plan.name}
                   </h3>
-                  <p className="text-xs font-semibold text-red-600 mb-3">
+                  <p className="text-xs font-semibold text-red-600 dark:text-red-400 mb-3">
                     {plan.subtitle}
                   </p>
-                  <p className="text-xs sm:text-sm text-slate-500 leading-relaxed min-h-[48px]">
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed min-h-[48px]">
                     {plan.description}
                   </p>
                 </div>
 
                 {/* Price Display */}
-                <div className="mb-6 pb-6 border-b border-slate-100">
+                <div className="mb-6 pb-6 border-b border-slate-100 dark:border-slate-800">
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                    <span className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
                       {plan.price} ₺
                     </span>
-                    <span className="text-xs font-semibold text-slate-500 uppercase">
+                    <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase">
                       'den başlayan
                     </span>
                   </div>
                   <div className="flex items-center gap-2 mt-2">
-                    <span className="inline-block bg-slate-100 text-slate-700 text-[11px] font-semibold px-2.5 py-1 rounded-md">
+                    <span className="inline-block bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[11px] font-semibold px-2.5 py-1 rounded-md">
                       Montaj & Malzeme Dahil
                     </span>
-                    <span className="inline-block bg-emerald-50 text-emerald-700 text-[11px] font-semibold px-2.5 py-1 rounded-md">
+                    <span className="inline-block bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 text-[11px] font-semibold px-2.5 py-1 rounded-md">
                       Aidatsız
                     </span>
                   </div>
                 </div>
 
                 {/* Hardware Highlights (Quick Spec Box) */}
-                <div className="bg-slate-50/80 rounded-2xl p-4 mb-6 border border-slate-100 space-y-2.5">
-                  <div className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">
+                <div className="bg-slate-50/80 dark:bg-slate-800/60 rounded-2xl p-4 mb-6 border border-slate-100 dark:border-slate-700/60 space-y-2.5">
+                  <div className="text-[11px] font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
                     Öne Çıkan Donanım:
                   </div>
                   {plan.hardwareHighlights.map((item, hIdx) => {
                     const IconComponent = item.icon;
                     return (
-                      <div key={hIdx} className="flex items-start gap-2.5 text-xs text-slate-700 leading-tight">
-                        <IconComponent className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+                      <div key={hIdx} className="flex items-start gap-2.5 text-xs text-slate-700 dark:text-slate-300 leading-tight">
+                        <IconComponent className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
                         <span className="font-medium">{item.text}</span>
                       </div>
                     );
@@ -195,12 +195,12 @@ export default function Pricing() {
 
                 {/* Detailed Features List */}
                 <div className="space-y-2.5 mb-8">
-                  <span className="text-xs font-bold text-slate-900 uppercase tracking-wider block mb-3">
+                  <span className="text-xs font-bold text-slate-900 dark:text-slate-200 uppercase tracking-wider block mb-3">
                     Paket Detayları & Hizmetler:
                   </span>
                   {plan.features.map((feat, fIdx) => (
-                    <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600">
-                      <div className="p-0.5 rounded-full bg-emerald-50 text-emerald-600 shrink-0 mt-0.5">
+                    <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                      <div className="p-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5">
                         <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                       </div>
                       <span className="leading-snug">{feat}</span>
@@ -218,7 +218,7 @@ export default function Pricing() {
                   className={`w-full py-3.5 px-4 rounded-xl text-center text-sm font-semibold transition-all flex items-center justify-center gap-2 shadow-sm ${
                     plan.popular
                       ? "bg-red-600 hover:bg-red-700 text-white shadow-red-600/25 hover:shadow-red-600/40 hover:scale-[1.01] active:scale-[0.99]"
-                      : "bg-slate-900 hover:bg-slate-800 text-white hover:scale-[1.01] active:scale-[0.99]"
+                      : "bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white hover:scale-[1.01] active:scale-[0.99]"
                   }`}
                 >
                   <MessageCircle className="w-4 h-4 fill-current" />
@@ -226,8 +226,8 @@ export default function Pricing() {
                 </a>
 
                 <a
-                  href="#kesif-formu"
-                  className="w-full py-2.5 px-4 rounded-xl text-center text-xs font-medium text-slate-600 hover:text-red-600 hover:bg-slate-100 transition-colors flex items-center justify-center gap-1"
+                  href="/#kesif-formu"
+                  className="w-full py-2.5 px-4 rounded-xl text-center text-xs font-medium text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center gap-1"
                 >
                   <span>veya Ücretsiz Keşif Formu Doldur</span>
                   <ArrowRight className="w-3 h-3" />
