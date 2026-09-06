@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 import ScrollToTop from "@/components/ScrollToTop";
+import SourceProtection from "@/components/SourceProtection";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -109,8 +111,11 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} scroll-smooth antialiased`}
     >
-      <head>
-        <script
+      <head suppressHydrationWarning />
+      <body className="min-h-full flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+        <Script
+          id="hdk-theme-script"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
@@ -127,14 +132,15 @@ export default function RootLayout({
             `,
           }}
         />
-        <script
+        <Script
+          id="hdk-json-ld"
           type="application/ld+json"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-      </head>
-      <body className="min-h-full flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
         {children}
         <ScrollToTop />
+        <SourceProtection />
       </body>
     </html>
   );
