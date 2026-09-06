@@ -10,10 +10,10 @@ export default function Pricing() {
       name: "4 Kameralı Güvenlik Seti",
       subtitle: "Ev, Apartman Girişi & Küçük Ofisler İçin",
       description: "Küçük alanlar ve temel güvenlik ihtiyaçları için kompakt, yüksek çözünürlüklü ve ekonomik anahtar teslim çözüm.",
-      price: "8.450",
+      priceSub: "Metraj ve ihtiyacınıza özel en avantajlı teklif",
       badge: "Giriş Seviyesi",
       popular: false,
-      whatsappMsg: encodeURIComponent("Merhaba HDK Güvenlik, 4 Kameralı Güvenlik Seti hakkında detaylı bilgi ve montaj teklifi almak istiyorum."),
+      whatsappMsg: encodeURIComponent("Merhaba HDK Güvenlik, 4 Kameralı Güvenlik Seti hakkında detaylı bilgi ve güncel fiyat teklifi almak istiyorum."),
       hardwareHighlights: [
         { icon: Camera, text: "4 Adet Full HD (1080p) Gece Görüşlü Kamera (İç / Dış Mekan)" },
         { icon: HardDrive, text: "1 TB 7/24 Güvenlik Diski (2-3 Hafta Kesintisiz Kayıt)" },
@@ -30,16 +30,16 @@ export default function Pricing() {
         "2 Yıl Birebir Değişim & Servis Garantisi",
         "Ücretsiz Yerinde Keşif Hizmeti",
       ],
-      cta: "4'lü Set İçin Fiyat Al",
+      cta: "4'lü Set İçin Fiyat Teklifi Al",
     },
     {
       name: "8 Kameralı Güvenlik Seti",
       subtitle: "İş Yeri, Villa, Restoran & Depolar İçin",
       description: "Geniş iç ve dış alanların her köşesini kör nokta bırakmadan kontrol altında tutmak isteyen işletmeler için ideal paket.",
-      price: "14.850",
+      priceSub: "Geniş alan ve işletmelere özel indirimli teklif",
       badge: "En Çok Tercih Edilen",
       popular: true,
-      whatsappMsg: encodeURIComponent("Merhaba HDK Güvenlik, 8 Kameralı Güvenlik Seti hakkında detaylı bilgi ve montaj randevusu almak istiyorum."),
+      whatsappMsg: encodeURIComponent("Merhaba HDK Güvenlik, 8 Kameralı Güvenlik Seti hakkında detaylı bilgi ve güncel fiyat teklifi almak istiyorum."),
       hardwareHighlights: [
         { icon: Camera, text: "8 Adet 2K (5MP) Geniş Açılı Gece Görüşlü Kamera" },
         { icon: HardDrive, text: "2 TB 7/24 Kurumsal Güvenlik Diski (3-4 Hafta Kayıt)" },
@@ -57,16 +57,16 @@ export default function Pricing() {
         "2 Yıl Tam Garanti + Öncelikli 7/24 Teknik Servis",
         "Ücretsiz Keşif & Detaylı Güvenlik Projelendirmesi",
       ],
-      cta: "8'li Set İçin Fiyat Al",
+      cta: "8'li Set İçin Fiyat Teklifi Al",
     },
     {
       name: "16 Kameralı Güvenlik Seti",
       subtitle: "Fabrika, Şantiye, Plaza & Büyük Tesisler",
       description: "Büyük ölçekli sahalar, siteler ve kurumsal tesisler için yapay zeka analizli profesyonel merkezi izleme istasyonu.",
-      price: "26.900",
+      priceSub: "Kurumsal saha ve tesis keşfine özel teklif",
       badge: "Kurumsal & Tesis",
       popular: false,
-      whatsappMsg: encodeURIComponent("Merhaba HDK Güvenlik, 16 Kameralı Güvenlik Seti ve kurumsal projelendirme için keşif ve teklif almak istiyorum."),
+      whatsappMsg: encodeURIComponent("Merhaba HDK Güvenlik, 16 Kameralı Güvenlik Seti ve kurumsal projelendirme için keşif ve güncel fiyat teklifi almak istiyorum."),
       hardwareHighlights: [
         { icon: Camera, text: "16 Adet Ultra HD 4K / Gece Renkli (ColorVu) Kamera" },
         { icon: HardDrive, text: "4 TB Yüksek Kapasiteli 7/24 Sunucu Sınıfı Disk" },
@@ -84,7 +84,7 @@ export default function Pricing() {
         "2 Yıl Yerinde Teknik Servis & Periyodik Bakım",
         "Ücretsiz Saha Keşfi ve Risk Haritası Raporu",
       ],
-      cta: "16'lı Set İçin Fiyat Al",
+      cta: "16'lı Set İçin Fiyat Teklifi Al",
     },
   ];
 
@@ -101,13 +101,13 @@ export default function Pricing() {
             İhtiyacınıza Uygun Güvenlik Kamera Setleri
           </h2>
           <p className="mt-4 text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
-            Aylık aidat, abonelik veya sürpriz fatura yok. Kamera, kayıt cihazı, disk ve uzman montaj dahil komple anahtar teslim güvenlik sistemleri.
+            Aylık aidat, abonelik veya sürpriz fatura yok. Metraj ve ihtiyaçlarınıza göre en güncel anahtar teslim fiyat teklifini almak için hemen keşif veya teklif talep edebilirsiniz.
           </p>
 
           {/* Value Guarantee Pill */}
           <div className="mt-6 inline-flex flex-wrap items-center justify-center gap-2 sm:gap-4 px-4 py-2 rounded-full bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200/80 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-300 text-xs font-medium">
             <span className="flex items-center gap-1.5 font-semibold">
-              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> Tek Seferlik Ödeme
+              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> Ücretsiz Keşfe Özel Teklif
             </span>
             <span className="hidden sm:inline text-emerald-300 dark:text-emerald-700">•</span>
             <span className="flex items-center gap-1.5 font-semibold">
@@ -159,20 +159,28 @@ export default function Pricing() {
 
                 {/* Price Display */}
                 <div className="mb-6 pb-6 border-b border-slate-100 dark:border-slate-800">
-                  <div className="flex items-baseline gap-1.5">
-                    <span className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                      {plan.price} ₺
-                    </span>
-                    <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase">
-                      'den başlayan
+                  <div className="flex flex-col gap-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                        Fiyat Teklifi Alınız
+                      </span>
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-red-50 dark:bg-red-950/60 text-red-600 dark:text-red-400 border border-red-100 dark:border-red-900/60 shrink-0">
+                        Güncel Fiyat
+                      </span>
+                    </div>
+                    <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                      {plan.priceSub}
                     </span>
                   </div>
-                  <div className="flex items-center gap-2 mt-2">
+                  <div className="flex flex-wrap items-center gap-2 mt-3">
                     <span className="inline-block bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[11px] font-semibold px-2.5 py-1 rounded-md">
-                      Montaj & Malzeme Dahil
+                      Montaj &amp; Malzeme Dahil
                     </span>
                     <span className="inline-block bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 text-[11px] font-semibold px-2.5 py-1 rounded-md">
                       Aidatsız
+                    </span>
+                    <span className="inline-block bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 text-[11px] font-semibold px-2.5 py-1 rounded-md">
+                      Ücretsiz Keşif
                     </span>
                   </div>
                 </div>
