@@ -25,7 +25,7 @@ export default function FAQ() {
     {
       question: "Gece zifiri karanlıkta görüntü kalitesi nasıldır? Yüz ve plaka seçilir mi?",
       answer:
-        "Sistemlerimizde Smart IR gece görüşü ve ColorVu (gece tam renkli) optik sensör teknolojileri kullanılmaktadır. Sıfır ışıkta dahi 20 ila 30 metre mesafeye kadar gündüz parlaklığında görüntü elde edilir. 2K ve 4K Ultra HD çözünürlüklü modellerimizde giriş kapılarında net yüz tanıma ve araç geçiş noktalarında plaka tespiti rahatlıkla yapılabilmektedir.",
+        "Sistemlerimizde Smart IR gece görüşü ve gece tam renkli optik sensör teknolojileri kullanılmaktadır. Sıfır ışıkta dahi 5 ila 15 metre mesafeye kadar gündüz parlaklığında net görüntü elde edilir. Giriş kapılarında net yüz tanıma ve araç geçiş noktalarında detay tespiti rahatlıkla yapılabilmektedir.",
     },
     {
       question: "Kayıtlar ne kadar süre geriye dönük saklanır? Hafıza dolunca ne olur?",

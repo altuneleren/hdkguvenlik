@@ -69,9 +69,9 @@ export default function Pricing() {
       name: "4 Kameralı AHD Set",
       subtitle: "Müstakil Ev, Ofis & Dükkanlar İçin",
       description:
-        "En çok satan paketimiz: 4 farklı noktayı sesli ve renkli gece görüşüyle kesintisiz koruma altına alın.",
+        "4 farklı noktayı sesli ve renkli gece görüşüyle kesintisiz koruma altına alan ekonomik anahtar teslim paket.",
       price: "15.000",
-      badge: "En Çok Tercih Edilen",
+      badge: "İdeal & Ekonomik",
       popular: false,
       whatsappMsg: encodeURIComponent(
         "Merhaba HDK Güvenlik, 15.000 TL tutarındaki 4 Kameralı AHD Renkli ve Sesli Güvenlik Seti hakkında detaylı bilgi ve sipariş vermek istiyorum."
@@ -110,9 +110,9 @@ export default function Pricing() {
       name: "8 Kameralı AHD Set",
       subtitle: "Geniş İş Yeri, Villa, Depo & Restoran",
       description:
-        "Geniş alanlarda kör nokta bırakmayan, 8 sesli kamera ve yüksek kapasiteli kayıt diskiyle tam kapsamlı çözüm.",
+        "En çok satan paketimiz: Geniş alanlarda kör nokta bırakmayan, 8 sesli kamera ve yüksek performansla tam kapsamlı güvenlik.",
       price: "28.000",
-      badge: "Geniş Alan Koruması",
+      badge: "En Çok Tercih Edilen",
       popular: true,
       whatsappMsg: encodeURIComponent(
         "Merhaba HDK Güvenlik, 28.000 TL tutarındaki 8 Kameralı AHD Renkli ve Sesli Güvenlik Seti hakkında detaylı bilgi ve sipariş vermek istiyorum."
