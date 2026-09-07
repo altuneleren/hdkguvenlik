@@ -4,7 +4,7 @@ export default function Stats() {
   const stats = [
     {
       icon: Camera,
-      value: "1.000+",
+      value: "2.500+",
       label: "Tamamlanan Montaj & Kurulum",
       description: "Ev, iş yeri, villa ve fabrikalarda sorunsuz çalışan sistemler",
     },
