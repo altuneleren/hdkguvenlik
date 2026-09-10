@@ -21,8 +21,8 @@ export default function InspectionForm() {
     phone: "",
     location: "",
     propertyType: "Ev / Daire",
-    systemType: "Güvenlik Kamerası (IP / Gece Görüşlü)",
-    cameraCount: "1 - 4 Kamera",
+    systemType: "8 Kameralı AHD Set (28.000 ₺ - En Çok Satan)",
+    cameraCount: "8 Kameralı Set (En Çok Tercih Edilen)",
     notes: "",
   });
 
@@ -36,18 +36,22 @@ export default function InspectionForm() {
   ];
 
   const systemTypes = [
-    "Güvenlik Kamerası (IP / Gece Görüşlü)",
-    "Hırsız Alarm Sistemi",
-    "Kamera + Alarm Paketi",
-    "Yangın Algılama & İhbar",
-    "Görüntülü Diyafon / Geçiş Kontrol",
+    "2 Kameralı AHD Set (12.500 ₺)",
+    "4 Kameralı AHD Set (15.000 ₺)",
+    "8 Kameralı AHD Set (28.000 ₺ - En Çok Satan)",
+    "16 Kameralı AHD Set (55.000 ₺)",
+    "Solar Panelli Kameralar (Elektriksiz & 4G)",
+    "IP Kamera Sistemleri (PoE & 4K)",
+    "8'li Dev Kampanya Seti (Monitör & Dolap Dahil)",
+    "Kamera + Hırsız Alarm Paketi",
   ];
 
   const cameraCounts = [
-    "1 - 4 Kamera",
-    "5 - 8 Kamera",
-    "9 - 16 Kamera",
-    "16+ Kamera (Proje Bazlı)",
+    "2 Kameralı Set",
+    "4 Kameralı Set",
+    "8 Kameralı Set (En Çok Tercih Edilen)",
+    "16 Kameralı Set",
+    "16+ Kamera (Büyük Saha / Özel Proje)",
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -239,8 +243,15 @@ export default function InspectionForm() {
                       <button
                         type="button"
                         key={item}
-                        onClick={() => setFormData({ ...formData, systemType: item })}
-                        className={`text-left px-4 py-3 rounded-xl border text-xs sm:text-sm font-medium transition-all ${
+                        onClick={() => {
+                          let matchedCount = formData.cameraCount;
+                          if (item.startsWith("2 Kameralı")) matchedCount = "2 Kameralı Set";
+                          else if (item.startsWith("4 Kameralı")) matchedCount = "4 Kameralı Set";
+                          else if (item.startsWith("8 Kameralı") || item.startsWith("8'li")) matchedCount = "8 Kameralı Set (En Çok Tercih Edilen)";
+                          else if (item.startsWith("16 Kameralı")) matchedCount = "16 Kameralı Set";
+                          setFormData({ ...formData, systemType: item, cameraCount: matchedCount });
+                        }}
+                        className={`text-left px-4 py-3 rounded-xl border text-xs sm:text-sm font-medium transition-all cursor-pointer ${
                           isSelected
                             ? "bg-red-600/20 border-red-500 text-white shadow-sm ring-1 ring-red-500/50"
                             : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-white"

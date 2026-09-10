@@ -85,11 +85,15 @@ export default function Hero() {
           </button>
 
           {/* Slayt Çerçevesi (1024x512 = 2/1 Tam Oran: Resimlerin Hiçbir Yeri Kesilmez) */}
-          <div className="relative aspect-[2/1] w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 dark:border-slate-800/80 bg-slate-900 group">
+          <div
+            suppressHydrationWarning
+            className="relative aspect-[2/1] w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 dark:border-slate-800/80 bg-slate-900 group"
+          >
             {/* Slayt Resimleri (Her 5 saniyede bir otomatik akar) */}
             {HERO_SLIDES.map((slide, index) => (
               <div
                 key={slide.url}
+                suppressHydrationWarning
                 className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
                   index === currentSlide
                     ? "opacity-100 scale-100 z-10"
@@ -98,6 +102,7 @@ export default function Hero() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
+                  suppressHydrationWarning
                   src={slide.url}
                   alt={slide.alt}
                   className="w-full h-full object-cover object-center select-none"
