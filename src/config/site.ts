@@ -4,5 +4,5 @@ export const SITE_CONFIG = {
   phoneRaw: "905372568756",
   email: "info@hdkguvenlik.com",
   // Site herkese açık ve canlı durumdadır
-  maintenanceMode: false,
+  maintenanceMode: true,
 };
