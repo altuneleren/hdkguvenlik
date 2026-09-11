@@ -6,8 +6,8 @@
 interface NotificationPayload {
   title: string;
   message: string;
-  url?: string; // Tıklandığında açılacak sayfa (ör: "/admin")
-  data?: Record<string, any>; // Ekstra parametreler
+  url?: string; // Tıklandığında açılacak sayfa (ör: "http://localhost:3000/admin")
+  data?: Record<string, any>; // Ekstra parametreler (leadId, phone, location vb.)
 }
 
 const ONESIGNAL_APP_ID = process.env.ONESIGNAL_APP_ID || "";
@@ -60,25 +60,48 @@ export async function sendPushNotification({ title, message, url, data }: Notifi
       console.error("[OneSignal Exception]", error);
       results.onesignal = { success: false, error };
     }
-  } else {
-    console.log("[OneSignal] API anahtarları bekleniyor (.env.local)");
   }
 
-  // 2. ntfy.sh Anlık Bildirim (Tamamlayıcı & Yedek kanal)
+  // 2. ntfy.sh Anlık Bildirim (JSON Gövdesi ile - Türkçe karakter ve emoji %100 güvenli)
   try {
-    const ntfyRes = await fetch(`https://ntfy.sh/${NTFY_TOPIC}`, {
+    const actions: any[] = [];
+    if (data?.phone) {
+      const cleanPhone = String(data.phone).replace(/\s+/g, "");
+      actions.push({
+        action: "view",
+        label: "📞 Müşteriyi Ara",
+        url: `tel:${cleanPhone}`,
+      });
+    }
+    if (url) {
+      actions.push({
+        action: "view",
+        label: "🛡️ Admin Paneli",
+        url: url,
+      });
+    }
+
+    const ntfyPayload = {
+      topic: NTFY_TOPIC,
+      title: title,
+      message: message,
+      priority: 5, // 5 = urgent / high
+      tags: ["camera", "bell"],
+      actions: actions.length > 0 ? actions : undefined,
+    };
+
+    const ntfyRes = await fetch("https://ntfy.sh", {
       method: "POST",
       headers: {
-        "Title": title,
-        "Priority": "urgent",
-        "Tags": "camera,bell",
-        ...(url ? { "Actions": `view, Görüntüle, ${url}` } : {}),
+        "Content-Type": "application/json; charset=utf-8",
       },
-      body: message,
+      body: JSON.stringify(ntfyPayload),
     });
+
     results.ntfy = { success: ntfyRes.ok };
   } catch (err) {
     console.error("[ntfy Error]", err);
+    results.ntfy = { success: false, error: err };
   }
 
   return { success: true, details: results };

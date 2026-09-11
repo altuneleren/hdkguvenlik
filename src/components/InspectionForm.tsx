@@ -63,6 +63,10 @@ export default function InspectionForm() {
     setSubmitError(null);
 
     try {
+      if (!formData.fullName.trim() || !formData.phone.trim()) {
+        throw new Error("Lütfen Ad Soyad ve Telefon numaranızı eksiksiz giriniz.");
+      }
+
       // Arka planda veritabanına /api/leads API'sine kaydet (Admin paneline düşer)
       const res = await fetch("/api/leads", {
         method: "POST",
@@ -73,14 +77,16 @@ export default function InspectionForm() {
         }),
       });
 
-      if (!res.ok) {
-        throw new Error("Kayıt sırasında bir sorun oluştu.");
+      const data = await res.json().catch(() => null);
+
+      if (!res.ok || (data && !data.success)) {
+        throw new Error((data && data.error) || "Kayıt sırasında bir sorun oluştu.");
       }
 
       setSubmitted(true);
     } catch (err: any) {
       console.error("Lead save error:", err);
-      setSubmitError("Talebiniz kaydedilirken bir hata oluştu. Lütfen tekrar deneyin veya telefonla ulaşın.");
+      setSubmitError(err.message || "Talebiniz kaydedilirken bir hata oluştu. Lütfen tekrar deneyin.");
     } finally {
       setIsSubmitting(false);
     }
