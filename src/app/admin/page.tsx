@@ -24,7 +24,9 @@ import {
   FileSpreadsheet,
   Smartphone,
   Bell,
-  ExternalLink
+  ExternalLink,
+  ArrowLeft,
+  Home
 } from "lucide-react";
 import Link from "next/link";
 
@@ -262,9 +264,13 @@ export default function AdminPage() {
             </button>
           </form>
 
-          <div className="mt-6 pt-6 border-t border-slate-800">
-            <Link href="/" className="text-xs text-slate-500 hover:text-white transition-colors">
-              ← Ana Sayfaya Geri Dön
+          <div className="mt-6 pt-6 border-t border-slate-800 flex justify-center">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-white transition-colors"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>Ana Sayfaya Geri Dön</span>
             </Link>
           </div>
         </div>
@@ -278,7 +284,11 @@ export default function AdminPage() {
       {/* Top Navbar */}
       <header className="bg-slate-900 border-b border-slate-800 sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          <Link
+            href="/"
+            title="Ana Sayfaya Dön"
+            className="flex items-center gap-3 hover:opacity-90 transition-opacity"
+          >
             <div className="w-9 h-9 bg-red-600 rounded-xl flex items-center justify-center text-white font-black shadow-md shadow-red-600/30">
               H
             </div>
@@ -288,19 +298,19 @@ export default function AdminPage() {
                 Admin CRM
               </span>
             </div>
-          </div>
+          </Link>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <Link
               href="/"
-              target="_blank"
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-white px-3 py-1.5 rounded-lg border border-slate-700 transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-lg border border-slate-700 transition-all font-medium"
             >
-              <span>Siteyi Gör</span>
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>Ana Sayfaya Dön</span>
             </Link>
             <button
               onClick={handleLogout}
-              className="inline-flex items-center gap-1.5 text-xs text-rose-400 hover:text-rose-300 bg-rose-500/10 hover:bg-rose-500/20 px-3 py-1.5 rounded-lg border border-rose-500/30 transition-all"
+              className="inline-flex items-center gap-1.5 text-xs text-rose-400 hover:text-rose-300 bg-rose-500/10 hover:bg-rose-500/20 px-3 py-1.5 rounded-lg border border-rose-500/30 transition-all font-medium"
             >
               <LogOut className="w-3.5 h-3.5" />
               <span>Çıkış Yap</span>

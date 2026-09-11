@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { 
   Menu, 
   X, 
@@ -11,16 +12,191 @@ import {
   Lock, 
   Award, 
   FileText, 
-  Headphones 
+  Headphones,
+  Sun,
+  Moon
 } from "lucide-react";
-import HDKLogo from "./HDKLogo";
-import ThemeToggle from "./ThemeToggle";
+
+// Self-contained HDKLogo for guaranteed zero-failure deployment
+function HDKLogo({
+  className = "",
+  height = 42,
+  showTagline = true,
+  theme = "light",
+}: {
+  className?: string;
+  height?: number;
+  showTagline?: boolean;
+  theme?: "light" | "dark";
+  variant?: string;
+}) {
+  const isDark = theme === "dark";
+
+  return (
+    <div className={`inline-flex items-center gap-2.5 sm:gap-3 select-none ${className}`}>
+      <div
+        className={
+          isDark
+            ? "bg-white px-2.5 py-1 rounded-xl shadow-md inline-flex items-center"
+            : "dark:bg-white dark:px-2.5 dark:py-1 dark:rounded-xl dark:shadow-md inline-flex items-center transition-all"
+        }
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/hdk-logo.png"
+          alt="HDK Güvenlik"
+          style={{ height: `${height}px` }}
+          className="w-auto object-contain transition-transform group-hover:scale-[1.03]"
+        />
+      </div>
+
+      {showTagline && (
+        <div
+          className={`flex flex-col justify-center border-l shrink-0 ${
+            isDark
+              ? "border-slate-800 pl-2.5 sm:pl-3"
+              : "border-slate-200 dark:border-slate-800 pl-2.5 sm:pl-3"
+          }`}
+        >
+          <span
+            className={`text-xs sm:text-[13px] font-bold tracking-tight leading-tight whitespace-nowrap transition-colors ${
+              isDark
+                ? "text-white group-hover:text-blue-400"
+                : "text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400"
+            }`}
+          >
+            Alarm &amp; Güvenlik
+          </span>
+          <span
+            className={`text-[11px] sm:text-xs font-semibold tracking-tight leading-tight whitespace-nowrap transition-colors ${
+              isDark
+                ? "text-blue-400"
+                : "text-blue-600 dark:text-blue-400"
+            }`}
+          >
+            Kamera Sistemleri
+          </span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Self-contained ThemeToggle for guaranteed zero-failure deployment
+function ThemeToggle({ className = "" }: { className?: string }) {
+  const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    setMounted(true);
+    const isDark = document.documentElement.classList.contains("dark");
+    setTheme(isDark ? "dark" : "light");
+  }, []);
+
+  const toggleTheme = () => {
+    const isCurrentlyDark = document.documentElement.classList.contains("dark");
+    const nextTheme = isCurrentlyDark ? "light" : "dark";
+
+    if (nextTheme === "dark") {
+      document.documentElement.classList.add("dark");
+      try {
+        localStorage.setItem("hdk_theme", "dark");
+      } catch {}
+    } else {
+      document.documentElement.classList.remove("dark");
+      try {
+        localStorage.setItem("hdk_theme", "light");
+      } catch {}
+    }
+
+    setTheme(nextTheme);
+  };
+
+  if (!mounted) {
+    return (
+      <div
+        className={`w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-100/80 dark:bg-slate-800/80 opacity-60 ${className}`}
+        aria-hidden="true"
+      />
+    );
+  }
+
+  const isDark = theme === "dark";
+
+  return (
+    <button
+      type="button"
+      onClick={toggleTheme}
+      className={`relative inline-flex items-center justify-center w-10 h-10 rounded-full border transition-all duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500/50 hover:scale-105 active:scale-95 ${
+        isDark
+          ? "border-slate-700 bg-slate-800/90 text-amber-400 hover:bg-slate-700 hover:border-slate-600 shadow-amber-500/10"
+          : "border-slate-200 bg-slate-100/90 text-slate-700 hover:bg-slate-200/90 hover:text-slate-900 shadow-slate-900/5"
+      } ${className}`}
+      title={isDark ? "Aydınlık Temaya Geç" : "Karanlık Temaya Geç"}
+      aria-label={isDark ? "Aydınlık Temaya Geç" : "Karanlık Temaya Geç"}
+    >
+      <span className="sr-only">
+        {isDark ? "Aydınlık Temaya Geç" : "Karanlık Temaya Geç"}
+      </span>
+      {isDark ? (
+        <Sun className="w-5 h-5 text-amber-400 transition-transform duration-300 rotate-0 hover:rotate-45" />
+      ) : (
+        <Moon className="w-5 h-5 text-slate-700 transition-transform duration-300 -rotate-12 hover:rotate-0" />
+      )}
+    </button>
+  );
+}
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [legalDropdownOpen, setLegalDropdownOpen] = useState(false);
   const [mobileLegalOpen, setMobileLegalOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("/#") || href.startsWith("#")) {
+      const targetId = href.replace("/#", "").replace("#", "");
+
+      // Eğer zaten ana sayfadaysak sayfayı yenilemeden o bölüme kaydır
+      if (pathname === "/") {
+        e.preventDefault();
+        const element = document.getElementById(targetId);
+        if (element) {
+          const navbarHeight = 85;
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - navbarHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+
+          // Sayfayı yenilemeden URL hash'ini güncelle
+          window.history.pushState(null, "", `#${targetId}`);
+        }
+      }
+    }
+  };
+
+  // Harici link veya başka sayfadan hash ile gelindiğinde yumuşak kaydır
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const targetId = window.location.hash.substring(1);
+      const timer = setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          const navbarHeight = 85;
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({
+            top: elementPosition - navbarHeight,
+            behavior: "smooth",
+          });
+        }
+      }, 200);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   const whatsappUrl =
     "https://wa.me/905372568756?text=" +
@@ -99,7 +275,8 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-[13px] xl:text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-500 transition-colors whitespace-nowrap py-1"
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-[13px] xl:text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-500 transition-colors whitespace-nowrap py-1 cursor-pointer"
               >
                 {link.name}
               </Link>
@@ -212,8 +389,11 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2.5 text-base font-medium text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-500 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-lg px-3 transition-colors"
+              onClick={(e) => {
+                setMobileMenuOpen(false);
+                handleNavClick(e, link.href);
+              }}
+              className="block py-2.5 text-base font-medium text-slate-700 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-500 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-lg px-3 transition-colors cursor-pointer"
             >
               {link.name}
             </Link>
