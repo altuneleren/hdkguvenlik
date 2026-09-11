@@ -24,7 +24,7 @@ export async function sendPushNotification(lead: NotificationLead): Promise<{ su
         "Title": `🚨 YENİ KEŞİF: ${lead.fullName}`,
         "Priority": "urgent", // En yüksek öncelik: Ekranı uyandırır, sesli ve titreşimli çalar
         "Tags": "camera,rotating_light,bell",
-        "Actions": `view, 📞 Hemen Ara, tel:${lead.phone.replace(/\s+/g, "")}; view, 💬 WhatsApp, https://wa.me/${formattedPhone}; view, 🛡️ Admin Paneli, http://localhost:3000/admin`,
+        "Actions": `view, 📞 Hemen Ara, tel:${lead.phone.replace(/\s+/g, "")}; view, 💬 WhatsApp, https://wa.me/${formattedPhone}; view, 🛡️ Admin Paneli, https://hdkguvenlik.com/admin`,
       },
       body: [
         `👤 Müşteri: ${lead.fullName}`,

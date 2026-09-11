@@ -79,9 +79,16 @@ export default function AdminPage() {
       });
       const data = await res.json();
       if (data.success) {
-        setNotifyTestResult("✅ Test bildirimi telefonunuza gönderildi! ntfy uygulamanızı kontrol edin.");
+        const osStatus = data.details?.onesignal?.success 
+          ? "✅ OneSignal: İletildi" 
+          : `⚠️ OneSignal: ${data.details?.onesignal?.error?.errors?.[0] || "Anahtar doğrulanamadı (401)"}`;
+        const ntfyStatus = data.details?.ntfy?.success 
+          ? "✅ ntfy: Başarılı" 
+          : "❌ ntfy: Hata";
+
+        setNotifyTestResult(`${ntfyStatus} | ${osStatus}`);
       } else {
-        setNotifyTestResult("❌ Gönderim başarısız oldu.");
+        setNotifyTestResult("❌ Gönderim başarısız oldu: " + (data.error || "Bilinmeyen hata"));
       }
     } catch (err) {
       setNotifyTestResult("❌ Bağlantı hatası oluştu.");
