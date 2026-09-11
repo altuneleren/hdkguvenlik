@@ -1,12 +1,20 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import { MessageCircle, Phone, Sparkles } from "lucide-react";
 
 export default function CampaignPopup() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    // Admin panelinde popup hiçbir şekilde açılmaz
+    if (pathname?.startsWith("/admin")) {
+      setIsOpen(false);
+      return;
+    }
+
     // Check if closed in this session (optional: to avoid annoying page-to-page navigation in the same visit)
     const hasClosed = sessionStorage.getItem("hdk_popup_closed");
     if (!hasClosed) {
@@ -16,7 +24,7 @@ export default function CampaignPopup() {
       }, 700);
       return () => clearTimeout(timer);
     }
-  }, []);
+  }, [pathname]);
 
   const handleClose = useCallback(() => {
     setIsOpen(false);
@@ -46,7 +54,7 @@ export default function CampaignPopup() {
     }
   }, [isOpen]);
 
-  if (!isOpen) return null;
+  if (pathname?.startsWith("/admin") || !isOpen) return null;
 
   const whatsappMessage = encodeURIComponent(
     "Merhaba HDK Güvenlik, 28.000 TL tutarındaki 19\" Kendinden Sesli Monitörlü ve Kilitli Dolaplı 8'li Kamera Dev Kampanyanız hakkında detaylı bilgi ve sipariş vermek istiyorum."

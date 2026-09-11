@@ -149,6 +149,12 @@ export default function Footer() {
             >
               WhatsApp Destek
             </a>
+            <a 
+              href="/admin" 
+              className="hover:text-red-400 transition-colors font-semibold flex items-center gap-1 text-slate-400"
+            >
+              <span>🔒 Yönetici Paneli</span>
+            </a>
           </div>
         </div>
       </div>

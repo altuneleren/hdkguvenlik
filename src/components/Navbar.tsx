@@ -27,8 +27,10 @@ export default function Navbar() {
     encodeURIComponent("Merhaba HDK Güvenlik, kamera ve güvenlik sistemleri hakkında bilgi ve fiyat teklifi almak istiyorum.");
 
   const navLinks = [
-    { name: "Özellikler", href: "/#ozellikler" },
     { name: "Paketler & Fiyatlar", href: "/#fiyatlar" },
+    { name: "Paket Sihirbazı", href: "/#sihirbaz" },
+    { name: "Karşılaştır", href: "/#karsilastir" },
+    { name: "HDD Hesaplayıcı", href: "/#hesaplayici" },
     { name: "Ücretsiz Keşif", href: "/#kesif-formu" },
     { name: "SSS", href: "/#sss" },
   ];

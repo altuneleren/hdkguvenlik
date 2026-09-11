@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
 import SourceProtection from "@/components/SourceProtection";
 import CampaignPopup from "@/components/CampaignPopup";
+import AIChatAdvisor from "@/components/AIChatAdvisor";
+import PWAInstaller from "@/components/PWAInstaller";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,10 +17,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  themeColor: "#dc2626",
+};
+
 export const metadata: Metadata = {
   title: "HDK Güvenlik | Kamera ve Alarm Güvenlik Sistemleri - Amasya",
   description:
     "HDK Güvenlik; Amasya ve tüm Türkiye genelinde yüksek çözünürlüklü güvenlik kamerası, hırsız ve yangın alarm sistemleri, profesyonel montaj ve ücretsiz yerinde keşif hizmeti sunmaktadır.",
+  manifest: "/manifest.webmanifest",
   keywords: [
     "HDK Güvenlik",
     "HDK Kamera",
@@ -139,6 +146,8 @@ export default function RootLayout({
         <ScrollToTop />
         <SourceProtection />
         <CampaignPopup />
+        <AIChatAdvisor />
+        <PWAInstaller />
       </body>
     </html>
   );

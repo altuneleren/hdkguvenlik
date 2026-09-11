@@ -1,0 +1,21 @@
+{
+  "name": "HDK Güvenlik Sistemleri",
+  "short_name": "HDK Güvenlik",
+  "description": "Amasya ve Çevre İllerde 2 Yıl Garantili Kamera & Alarm Kurulumu",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#dc2626",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

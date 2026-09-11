@@ -54,26 +54,36 @@ export default function InspectionForm() {
     "16+ Kamera (Büyük Saha / Özel Proje)",
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const waUrl = generateWhatsAppMessage();
-    if (typeof window !== "undefined") {
-      window.open(waUrl, "_blank");
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      // Arka planda veritabanına /api/leads API'sine kaydet (Admin paneline düşer)
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          source: "Keşif Formu",
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Kayıt sırasında bir sorun oluştu.");
+      }
+
+      setSubmitted(true);
+    } catch (err: any) {
+      console.error("Lead save error:", err);
+      setSubmitError("Talebiniz kaydedilirken bir hata oluştu. Lütfen tekrar deneyin veya telefonla ulaşın.");
+    } finally {
+      setIsSubmitting(false);
     }
-    setSubmitted(true);
-  };
-
-  const generateWhatsAppMessage = () => {
-    const text = `*HDK Güvenlik - Yeni Ücretsiz Keşif Talebi*\n\n` +
-      `👤 *Ad Soyad:* ${formData.fullName}\n` +
-      `📞 *Telefon:* ${formData.phone}\n` +
-      `📍 *Konum / İlçe:* ${formData.location}\n` +
-      `🏢 *Mekan Türü:* ${formData.propertyType}\n` +
-      `🛡️ *İlgilenilen Sistem:* ${formData.systemType}\n` +
-      `📹 *Tahmini Kamera Sayısı:* ${formData.cameraCount}\n` +
-      (formData.notes ? `📝 *Not:* ${formData.notes}\n` : "");
-
-    return `https://wa.me/905372568756?text=${encodeURIComponent(text)}`;
   };
 
   return (
@@ -100,33 +110,59 @@ export default function InspectionForm() {
         {/* Form Card */}
         <div className="bg-slate-950/80 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-md">
           {submitted ? (
-            <div className="text-center py-12 space-y-6">
+            <div className="text-center py-10 space-y-6">
               <div className="w-20 h-20 mx-auto rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center animate-bounce">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
-              <h3 className="text-2xl font-bold text-white">
-                Keşif Talebiniz Başarıyla Alındı!
-              </h3>
-              <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
-                HDK Güvenlik uzman temsilcimiz verdiğiniz telefon numarası üzerinden en geç <strong>2 saat içinde</strong> sizinle iletişime geçerek randevu oluşturacaktır.
+              <div>
+                <span className="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold rounded-full mb-3">
+                  ✓ Talebiniz Yönetim Sistemimize Kaydedildi
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+                  Keşif Talebiniz Başarıyla Alındı!
+                </h3>
+              </div>
+
+              <div className="max-w-md mx-auto bg-slate-900/90 border border-slate-800 rounded-2xl p-5 text-left text-xs sm:text-sm space-y-2.5">
+                <div className="flex justify-between border-b border-slate-800 pb-2">
+                  <span className="text-slate-400">Müşteri:</span>
+                  <span className="font-bold text-white">{formData.fullName}</span>
+                </div>
+                <div className="flex justify-between border-b border-slate-800 pb-2">
+                  <span className="text-slate-400">İletişim:</span>
+                  <span className="font-mono text-white">{formData.phone}</span>
+                </div>
+                <div className="flex justify-between border-b border-slate-800 pb-2">
+                  <span className="text-slate-400">Bölge / İlçe:</span>
+                  <span className="text-white">{formData.location || "Amasya"}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-400">Seçilen Çözüm:</span>
+                  <span className="font-medium text-emerald-400">{formData.systemType}</span>
+                </div>
+              </div>
+
+              <p className="text-slate-300 text-xs sm:text-sm max-w-lg mx-auto leading-relaxed">
+                Talebiniz HDK Güvenlik teknik ekibimize iletilmiştir. Uzman temsilcimiz en kısa sürede telefon numaranızdan sizi arayarak keşif randevusunu oluşturacaktır.
               </p>
 
-              {/* Quick WhatsApp Share Button */}
-              <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a
-                  href={generateWhatsAppMessage()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg transition-all"
-                >
-                  <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
-                  <span>Bilgileri WhatsApp'tan da İlet</span>
-                </a>
+              <div className="pt-2 flex justify-center">
                 <button
-                  onClick={() => setSubmitted(false)}
-                  className="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-semibold transition-all"
+                  onClick={() => {
+                    setSubmitted(false);
+                    setFormData({
+                      fullName: "",
+                      phone: "",
+                      location: "",
+                      propertyType: "Ev / Daire",
+                      systemType: "8 Kameralı AHD Set (28.000 ₺ - En Çok Satan)",
+                      cameraCount: "8 Kameralı Set (En Çok Tercih Edilen)",
+                      notes: "",
+                    });
+                  }}
+                  className="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-semibold border border-slate-700 transition-all cursor-pointer"
                 >
-                  Yeni Form Doldur
+                  Yeni Keşif Formu Doldur
                 </button>
               </div>
             </div>
@@ -279,14 +315,21 @@ export default function InspectionForm() {
                 />
               </div>
 
+              {submitError && (
+                <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-xs text-center">
+                  {submitError}
+                </div>
+              )}
+
               {/* Submit Button */}
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-4 px-6 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-base flex items-center justify-center gap-2.5 shadow-xl shadow-red-600/30 hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer"
+                  disabled={isSubmitting}
+                  className="w-full py-4 px-6 rounded-xl bg-red-600 hover:bg-red-500 disabled:opacity-70 text-white font-bold text-base flex items-center justify-center gap-2.5 shadow-xl shadow-red-600/30 hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer"
                 >
                   <Send className="w-5 h-5" />
-                  <span>Ücretsiz Keşif Talebini Gönder</span>
+                  <span>{isSubmitting ? "Talebiniz Kaydediliyor..." : "Ücretsiz Keşif Talebini Gönder"}</span>
                 </button>
               </div>
 
