@@ -12,75 +12,8 @@ import {
   Lock, 
   Award, 
   FileText, 
-  Headphones,
-  Sun,
-  Moon
+  Headphones
 } from "lucide-react";
-
-// Self-contained ThemeToggle for guaranteed zero-failure deployment
-function ThemeToggle({ className = "" }: { className?: string }) {
-  const [mounted, setMounted] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-
-  useEffect(() => {
-    setMounted(true);
-    const isDark = document.documentElement.classList.contains("dark");
-    setTheme(isDark ? "dark" : "light");
-  }, []);
-
-  const toggleTheme = () => {
-    const isCurrentlyDark = document.documentElement.classList.contains("dark");
-    const nextTheme = isCurrentlyDark ? "light" : "dark";
-
-    if (nextTheme === "dark") {
-      document.documentElement.classList.add("dark");
-      try {
-        localStorage.setItem("hdk_theme", "dark");
-      } catch {}
-    } else {
-      document.documentElement.classList.remove("dark");
-      try {
-        localStorage.setItem("hdk_theme", "light");
-      } catch {}
-    }
-
-    setTheme(nextTheme);
-  };
-
-  if (!mounted) {
-    return (
-      <div
-        className={`w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-100/80 dark:bg-slate-800/80 opacity-60 ${className}`}
-        aria-hidden="true"
-      />
-    );
-  }
-
-  const isDark = theme === "dark";
-
-  return (
-    <button
-      type="button"
-      onClick={toggleTheme}
-      className={`relative inline-flex items-center justify-center w-10 h-10 rounded-full border transition-all duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500/50 hover:scale-105 active:scale-95 ${
-        isDark
-          ? "border-slate-700 bg-slate-800/90 text-amber-400 hover:bg-slate-700 hover:border-slate-600 shadow-amber-500/10"
-          : "border-slate-200 bg-slate-100/90 text-slate-700 hover:bg-slate-200/90 hover:text-slate-900 shadow-slate-900/5"
-      } ${className}`}
-      title={isDark ? "Aydınlık Temaya Geç" : "Karanlık Temaya Geç"}
-      aria-label={isDark ? "Aydınlık Temaya Geç" : "Karanlık Temaya Geç"}
-    >
-      <span className="sr-only">
-        {isDark ? "Aydınlık Temaya Geç" : "Karanlık Temaya Geç"}
-      </span>
-      {isDark ? (
-        <Sun className="w-5 h-5 text-amber-400 transition-transform duration-300 rotate-0 hover:rotate-45" />
-      ) : (
-        <Moon className="w-5 h-5 text-slate-700 transition-transform duration-300 -rotate-12 hover:rotate-0" />
-      )}
-    </button>
-  );
-}
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -200,8 +133,24 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 gap-3 xl:gap-6">
           {/* Logo */}
-          <Link href="/" className="flex items-center group shrink-0">
-            <HDKLogo height={38} showTagline={true} />
+          <Link href="/" className="inline-flex items-center gap-2.5 sm:gap-3 select-none group shrink-0">
+            <div className="bg-white dark:bg-white px-2.5 py-1 rounded-xl shadow-md inline-flex items-center">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/hdk-logo.png"
+                alt="HDK Güvenlik"
+                style={{ height: "38px" }}
+                className="w-auto object-contain transition-transform group-hover:scale-[1.03]"
+              />
+            </div>
+            <div className="flex flex-col justify-center border-l border-slate-200 dark:border-slate-800 pl-2.5 sm:pl-3 shrink-0">
+              <span className="text-xs sm:text-[13px] font-bold tracking-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 leading-tight whitespace-nowrap transition-colors">
+                Alarm &amp; Güvenlik
+              </span>
+              <span className="text-[11px] sm:text-xs font-semibold tracking-tight text-blue-600 dark:text-blue-400 leading-tight whitespace-nowrap transition-colors">
+                Kamera Sistemleri
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -287,9 +236,8 @@ export default function Navbar() {
             </div>
           </nav>
 
-          {/* Desktop Action Buttons: Theme Toggle (Left of WhatsApp) + WhatsApp */}
+          {/* Desktop Action Buttons: WhatsApp */}
           <div className="hidden lg:flex items-center gap-2.5 xl:gap-3 shrink-0">
-            <ThemeToggle className="shrink-0" />
             <a
               href={whatsappUrl}
               target="_blank"
@@ -303,9 +251,8 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Right Controls: Theme Toggle + Menu Button */}
-          <div className="flex lg:hidden items-center gap-2">
-            <ThemeToggle />
+          {/* Mobile Right Controls: Menu Button */}
+          <div className="flex lg:hidden items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"

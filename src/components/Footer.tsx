@@ -1,70 +1,5 @@
 import React from "react";
 
-// Self-contained HDKLogo for guaranteed zero-failure deployment
-function HDKLogo({
-  className = "",
-  height = 36,
-  showTagline = true,
-  theme = "dark",
-}: {
-  className?: string;
-  height?: number;
-  showTagline?: boolean;
-  theme?: "light" | "dark";
-  variant?: string;
-}) {
-  const isDark = theme === "dark";
-
-  return (
-    <div className={`inline-flex items-center gap-2.5 sm:gap-3 select-none ${className}`}>
-      <div
-        className={
-          isDark
-            ? "bg-white px-2.5 py-1 rounded-xl shadow-md inline-flex items-center"
-            : "dark:bg-white dark:px-2.5 dark:py-1 dark:rounded-xl dark:shadow-md inline-flex items-center transition-all"
-        }
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/hdk-logo.png"
-          alt="HDK Güvenlik"
-          style={{ height: `${height}px` }}
-          className="w-auto object-contain transition-transform group-hover:scale-[1.03]"
-        />
-      </div>
-
-      {showTagline && (
-        <div
-          className={`flex flex-col justify-center border-l shrink-0 ${
-            isDark
-              ? "border-slate-800 pl-2.5 sm:pl-3"
-              : "border-slate-200 dark:border-slate-800 pl-2.5 sm:pl-3"
-          }`}
-        >
-          <span
-            className={`text-xs sm:text-[13px] font-bold tracking-tight leading-tight whitespace-nowrap transition-colors ${
-              isDark
-                ? "text-white group-hover:text-blue-400"
-                : "text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400"
-            }`}
-          >
-            Alarm &amp; Güvenlik
-          </span>
-          <span
-            className={`text-[11px] sm:text-xs font-semibold tracking-tight leading-tight whitespace-nowrap transition-colors ${
-              isDark
-                ? "text-blue-400"
-                : "text-blue-600 dark:text-blue-400"
-            }`}
-          >
-            Kamera Sistemleri
-          </span>
-        </div>
-      )}
-    </div>
-  );
-}
-
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -105,8 +40,24 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-12 gap-8 pb-12 border-b border-slate-800/80">
           {/* Brand Info */}
           <div className="col-span-2 md:col-span-4 space-y-4">
-            <a href="/" className="inline-flex items-center group">
-              <HDKLogo height={36} theme="dark" showTagline={true} />
+            <a href="/" className="inline-flex items-center gap-2.5 sm:gap-3 select-none group">
+              <div className="bg-white px-2.5 py-1 rounded-xl shadow-md inline-flex items-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/hdk-logo.png"
+                  alt="HDK Güvenlik"
+                  style={{ height: "36px" }}
+                  className="w-auto object-contain transition-transform group-hover:scale-[1.03]"
+                />
+              </div>
+              <div className="flex flex-col justify-center border-l border-slate-800 pl-2.5 sm:pl-3 shrink-0">
+                <span className="text-xs sm:text-[13px] font-bold tracking-tight text-white group-hover:text-blue-400 leading-tight whitespace-nowrap transition-colors">
+                  Alarm &amp; Güvenlik
+                </span>
+                <span className="text-[11px] sm:text-xs font-semibold tracking-tight text-blue-400 leading-tight whitespace-nowrap transition-colors">
+                  Kamera Sistemleri
+                </span>
+              </div>
             </a>
             <p className="text-sm text-slate-400 max-w-md leading-relaxed">
               Siz sevdiklerinize ve hedeflerinize odaklanırken, güvenliğinizi biz devralıyoruz. HDK Güvenlik ile görünmez bir koruma kalkanının ardında, sınırları değil, sadece huzuru hissedin. Güvenli geleceğinize bugünden atılan modern imza.

@@ -7,71 +7,6 @@ import {
   MessageCircle 
 } from "lucide-react";
 
-// Self-contained HDKLogo for guaranteed zero-failure deployment
-function HDKLogo({
-  className = "",
-  height = 42,
-  showTagline = true,
-  theme = "dark",
-}: {
-  className?: string;
-  height?: number;
-  showTagline?: boolean;
-  theme?: "light" | "dark";
-  variant?: string;
-}) {
-  const isDark = theme === "dark";
-
-  return (
-    <div className={`inline-flex items-center gap-2.5 sm:gap-3 select-none ${className}`}>
-      <div
-        className={
-          isDark
-            ? "bg-white px-2.5 py-1 rounded-xl shadow-md inline-flex items-center"
-            : "dark:bg-white dark:px-2.5 dark:py-1 dark:rounded-xl dark:shadow-md inline-flex items-center transition-all"
-        }
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/hdk-logo.png"
-          alt="HDK Güvenlik"
-          style={{ height: `${height}px` }}
-          className="w-auto object-contain transition-transform group-hover:scale-[1.03]"
-        />
-      </div>
-
-      {showTagline && (
-        <div
-          className={`flex flex-col justify-center border-l shrink-0 ${
-            isDark
-              ? "border-slate-800 pl-2.5 sm:pl-3"
-              : "border-slate-200 dark:border-slate-800 pl-2.5 sm:pl-3"
-          }`}
-        >
-          <span
-            className={`text-xs sm:text-[13px] font-bold tracking-tight leading-tight whitespace-nowrap transition-colors ${
-              isDark
-                ? "text-white group-hover:text-blue-400"
-                : "text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400"
-            }`}
-          >
-            Alarm &amp; Güvenlik
-          </span>
-          <span
-            className={`text-[11px] sm:text-xs font-semibold tracking-tight leading-tight whitespace-nowrap transition-colors ${
-              isDark
-                ? "text-blue-400"
-                : "text-blue-600 dark:text-blue-400"
-            }`}
-          >
-            Kamera Sistemleri
-          </span>
-        </div>
-      )}
-    </div>
-  );
-}
-
 export default function UnderConstruction() {
   const whatsappUrl =
     "https://wa.me/905372568756?text=" +
@@ -109,8 +44,24 @@ export default function UnderConstruction() {
 
       {/* Top Header */}
       <header className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-10 flex items-center justify-between">
-        <div className="flex items-center">
-          <HDKLogo height={42} theme="dark" showTagline={true} />
+        <div className="flex items-center gap-2.5 sm:gap-3 select-none">
+          <div className="bg-white px-2.5 py-1 rounded-xl shadow-md inline-flex items-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/hdk-logo.png"
+              alt="HDK Güvenlik"
+              style={{ height: "42px" }}
+              className="w-auto object-contain transition-transform hover:scale-[1.03]"
+            />
+          </div>
+          <div className="flex flex-col justify-center border-l border-slate-800 pl-2.5 sm:pl-3 shrink-0">
+            <span className="text-xs sm:text-[13px] font-bold tracking-tight text-white leading-tight whitespace-nowrap">
+              Alarm &amp; Güvenlik
+            </span>
+            <span className="text-[11px] sm:text-xs font-semibold tracking-tight text-blue-400 leading-tight whitespace-nowrap">
+              Kamera Sistemleri
+            </span>
+          </div>
         </div>
 
         <div className="flex items-center gap-3">
