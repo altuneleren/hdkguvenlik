@@ -6,12 +6,12 @@
 interface NotificationPayload {
   title: string;
   message: string;
-  url?: string; // Tıklandığında açılacak sayfa (ör: "http://localhost:3000/admin")
+  url?: string; // Tıklandığında açılacak sayfa (ör: "http://www.hdkguvenlik.com/admin")
   data?: Record<string, any>; // Ekstra parametreler (leadId, phone, location vb.)
 }
 
-const ONESIGNAL_APP_ID = process.env.ONESIGNAL_APP_ID || "";
-const ONESIGNAL_REST_API_KEY = process.env.ONESIGNAL_REST_API_KEY || "";
+const ONESIGNAL_APP_ID = process.env.ONESIGNAL_APP_ID || "cf68e52e-508f-4495-8e08-4dd8a1e15bb2";
+const ONESIGNAL_REST_API_KEY = process.env.ONESIGNAL_REST_API_KEY || "os_v2_app_z5uoklsqr5cjldqijxmkdyk3wlifzp2ubicupqvgealy5yl754ahwuicezxo5dzdgpsujuaovfrct6upmoeisasiztsgr4ftfnr2tpq";
 const NTFY_TOPIC = "hdk-guvenlik-leads";
 
 /**
