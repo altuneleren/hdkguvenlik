@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - 'android/**'
+      - '.github/workflows/build-apk.yml'
 
 jobs:
   build:
@@ -21,13 +22,19 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: 🤖 Android SDK Kurulumu
-        uses: android-actions/setup-android@v3
+      - name: 📝 Android Lisanslarını Kabul Et
+        run: |
+          yes | sdkmanager --licenses 2>/dev/null || true
 
-      - name: 🏗️ Gradle ile Debug APK Derle
+      - name: 🏗️ Gradle Wrapper Oluştur ve İzin Ver
         run: |
           cd android
           gradle wrapper
+          chmod +x gradlew
+
+      - name: 🚀 APK Derle (assembleDebug)
+        run: |
+          cd android
           ./gradlew assembleDebug --stacktrace
 
       - name: 📦 APK Dosyasını Yükle (Artifact)
