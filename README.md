@@ -1,147 +1,99 @@
-# 🛡️ HDK Güvenlik — Profesyonel Kamera & Alarm Sistemleri Web Platformu
+# 🛡️ HDK GÜVENLİK — Kamera & Alarm Sistemleri
 
-[![Next.js](https://img.shields.io/badge/Next.js-16.3.4-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19.2.8-blue?style=for-the-badge&logo=react)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-[![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/)
+**Amasya ve çevre ilçelerinde ev, iş yeri, apartman ve açık alanlar için profesyonel güvenlik çözümleri sunuyoruz.**
 
-**HDK Güvenlik**, Amasya merkezli olmak üzere Merzifon, Suluova, Taşova, Gümüşhacıköy ve çevre ilçelerde güvenlik kamerası, alarm sistemleri, IP ve AHD kamera kurulumu, bakım ve teknik servis hizmetleri sunan firmanın kurumsal web platformudur.
+HDK Güvenlik olarak; yüksek çözünürlüklü IP ve AHD kamera sistemleri, hırsız ve yangın alarm sistemleri, akıllı güvenlik teknolojileri ve teknik servis hizmetlerimizle yaşam ve çalışma alanlarınızı 7/24 güvence altına alıyoruz.
 
 ---
 
-## 🌟 Öne Çıkan Özellikler
+## 🏢 Hakkımızda
 
-- **🧙‍♂️ Akıllı Paket Sihirbazı:** Kullanıcıların ev veya işyerlerine en uygun kamera ve güvenlik paketini adım adım belirlemesini sağlayan etkileşimli modül.
-- **💰 Şeffaf Paketler & Fiyatlandırma:** 2'li, 4'lü, 8'li ve 16'lı Güvenlik Kamera Setleri için detaylı teknik özellikler ve fiyat kartları.
-- **⚖️ Kapsamlı Ürün Karşılaştırma:** Analog HD, IP ve Kablosuz (Wi-Fi) kamera sistemleri arasındaki farkları anlatan interaktif tablo.
-- **💾 HDD & Depolama Hesaplayıcı:** Kamera sayısı, çözünürlük ve gün bazlı hard disk kayıt kapasitesini hesaplayan pratik hesaplama aracı.
-- **📋 Online Ücretsiz Keşif Formu:** Müşterilerin keşif talebi oluşturmasını sağlayan, anlık doğrulama ve bildirim destekli form yapısı.
-- **📊 Yönetici Paneli (`/admin`):** Gelen keşif ve teklif taleplerini listeleme, filtreleme, durum güncelleme ve Excel/CSV olarak dışa aktarma.
-- **🔍 Gelişmiş Yerel SEO (Amasya & Çevre İlçeler):**
-  - Schema.org `SecurityService` & `LocalBusiness` yapılandırılmış verisi (Coğrafi koordinatlar, 4.9 yıldız müşteri puanı).
-  - Dinamik `sitemap.ts` ve optimize `robots.ts`.
-  - Google aramalarında *"Amasya güvenlik kamerası"*, *"kamera sistemleri firması Amasya"* kelimelerinde üst sıraları hedefleyen meta etiketler.
-- **📱 PWA Desteği (Progressive Web App):** Mobil cihazlarda uygulama gibi ana ekrana eklenebilme, çevrimdışı önbellekleme (`manifest.webmanifest`, `sw.js`).
-- **💬 Doğrudan WhatsApp Entegrasyonu:** Tek tıkla yetkiliye WhatsApp üzerinden hazır mesajla bağlanabilme.
-- **⚖️ Yasal & Kurumsal Sayfalar:** KVKK Aydınlatma Metni, Gizlilik Politikası, Garanti Koşulları ve Montaj Sözleşmesi sayfaları.
+HDK Güvenlik, Amasya merkezli olarak güvenlik teknolojileri sektöründe faaliyet göstermektedir. Alanında uzman teknik kadromuz, kaliteli ekipman tercihimiz ve satış sonrası kesintisiz destek anlayışımızla; bireysel ve kurumsal müşterilerimize ihtiyaca özel, güvenilir ve uzun ömürlü sistemler kuruyoruz.
+
+Amacımız; yalnızca kamera montajı yapmak değil, mekanın kör noktalarını doğru analiz ederek gerçek anlamda caydırıcı ve koruyucu bir güvenlik ağı oluşturmaktır.
 
 ---
 
-## 🛠️ Teknoloji Yığını
+## 📹 Hizmetlerimiz
 
-| Alan | Teknoloji / Kütüphane | Açıklama |
+### 1. Güvenlik Kamera Sistemleri (CCTV)
+- **IP Kamera Sistemleri:** Yüksek çözünürlüklü (2MP, 4MP, 8MP 4K), ağ tabanlı, akıllı yapay zeka analizli (insan/araç tanıma) kamera çözümleri.
+- **AHD (Analog HD) Kamera Sistemleri:** Mevcut kablo altyapısını koruyarak yüksek netlik sağlayan ekonomik ve dayanıklı çözümler.
+- **Gece Görüşlü Kameralar:** ColorVu (7/24 Renkli Gece Görüşü) ve akıllı IR aydınlatma teknolojisi ile zifiri karanlıkta dahi net görüntü.
+- **PTZ (Hareketli / Dönen) Kameralar:** 360° dönebilen, optik zoom özellikli, geniş arazi ve çevre güvenliği kameraları.
+
+### 2. Hırsız & Yangın Alarm Sistemleri
+- Kablolu ve kablosuz profesyonel alarm panelleri
+- Manyetik kapı/pencere kontakları ve PIR hareket sensörleri
+- Duman, gaz ve ısı algılama sensörleri
+- Mobil bildirimli ve siren destekli anlık uyarı mekanizmaları
+
+### 3. Kayıt & Depolama Çözümleri
+- 7/24 kesintisiz güvenlik için özel Surveillance (Güvenlik sınıfı) hard diskler
+- 15 günden 90 güne kadar geriye dönük kesintisiz kayıt imkanı
+- H.265+ video sıkıştırma teknolojisi ile maksimum kayıt süresi
+
+### 4. Bakım, Onarım & Teknik Servis
+- Mevcut arızalı kamera ve kayıt cihazlarının tamiri
+- Kablo yenileme, adaptör ve besleme arızalarının giderilmesi
+- Yıllık periyodik bakım anlaşmaları ve sistem revizyonları
+
+---
+
+## 📦 Güvenlik Çözüm Paketlerimiz
+
+| Paket | İdeal Kullanım Alanı | İçerik Özeti |
 | :--- | :--- | :--- |
-| **Framework** | [Next.js 16 (App Router)](https://nextjs.org/) | Modern React SSR, SSG ve API Route desteği |
-| **Kütüphane** | [React 19](https://react.dev/) | En son bileşen mimarisi ve React Server Components |
-| **Dil** | [TypeScript 5](https://www.typescriptlang.org/) | Tip güvenliği ve hatasız kod tabanı |
-| **Stil / Tasarım**| [Tailwind CSS v4](https://tailwindcss.com/) | Yüksek performanslı modern CSS motoru |
-| **İkonlar** | [Lucide React](https://lucide.dev/) | Optimize vektör ikon kütüphanesi |
-| **Dağıtım** | [Vercel](https://vercel.com/) | Otomatik CI/CD ve edge dağıtım platformu |
+| **2 Kameralı Başlangıç Seti** | Daire, Küçük Ofis, Butik Mağaza | 2 Adet Full HD Kamera, Kayıt Cihazı, HDD, Mobil İzleme |
+| **4 Kameralı Standart Set** | Müstakil Ev, Dükkan, Market, Atölye | 4 Adet Gece Görüşlü Kamera, 4 Kanal DVR/NVR, HDD, Montaj |
+| **8 Kameralı Profesyonel Set** | Apartman, Depo, Restoran, Çiftlik | 8 Adet Geniş Açılı Kamera, 8 Kanal DVR/NVR, Yüksek Kapasiteli HDD |
+| **16+ Kameralı Kurumsal Çözüm** | Fabrika, Site, Otopark, Sanayi Tesisi | İhtiyaca özel projelendirme, IP/Fiber altyapı, Merkezi İzleme |
 
 ---
 
-## 📁 Proje Dizin Yapısı
+## ⭐ Neden HDK Güvenlik?
 
-```text
-hdk-guvenlik/
-├── public/                     # Statik dosyalar, logolar ve PWA varlıkları
-│   ├── images/                 # Slayt ve kampanya görselleri
-│   ├── manifest.webmanifest   # PWA manifest dosyası
-│   └── sw.js                   # Service Worker (PWA)
-├── src/
-│   ├── app/                    # Next.js App Router sayfaları
-│   │   ├── admin/              # Yönetici paneli sayfası
-│   │   ├── api/                # API rotaları (/leads vb.)
-│   │   ├── garanti-kosullari/  # Garanti koşulları yasal sayfası
-│   │   ├── gizlilik-politikasi/# Gizlilik politikası
-│   │   ├── kvkk/               # KVKK aydınlatma metni
-│   │   ├── montaj-sozlesmesi/  # Montaj sözleşmesi
-│   │   ├── layout.tsx          # Ana düzen, SEO & Schema meta verileri
-│   │   ├── page.tsx            # Ana sayfa
-│   │   ├── robots.ts           # Arama motoru robot direktifleri
-│   │   └── sitemap.ts          # Dinamik XML site haritası
-│   ├── components/             # Yeniden kullanılabilir UI bileşenleri
-│   │   ├── Navbar.tsx          # Ana navigasyon menüsü
-│   │   ├── Hero.tsx            # Karşılama ve slider bölümü
-│   │   ├── InspectionForm.tsx  # Keşif talep formu
-│   │   ├── Pricing.tsx         # Paket fiyatlandırma bölümü
-│   │   ├── StorageCalculator.tsx # HDD hesaplayıcı
-│   │   ├── ProductComparison.tsx # Ürün karşılaştırma tablosu
-│   │   ├── SystemConfigurator.tsx# Paket sihirbazı
-│   │   ├── Footer.tsx          # Alt bilgi ve iletişim bağlantıları
-│   │   └── ...
-│   ├── config/                 # Site genel ayarları
-│   ├── data/                   # JSON veri tabanı dosyaları (leads.json)
-│   └── lib/                    # Bildirim ve yardımcı fonksiyonlar
-├── next.config.ts              # Next.js yapılandırması & yönlendirmeler
-├── tailwind.config.ts          # Tailwind ayarları
-└── tsconfig.json               # TypeScript yapılandırması
-```
+- **🔍 Ücretsiz Yerinde Keşif:** Mekanınızı yerinde inceliyor, kör noktaları belirliyor ve bütçenize en uygun sistemi projelendiriyoruz.
+- **📱 7/24 Kesintisiz Cepten İzleme:** Akıllı telefon, tablet ve bilgisayarınızdan dünyanın neresinde olursanız olun canlı ve geçmiş kayıtları izleyebilirsiniz.
+- **🛡️ 2 Yıl Birebir Değişim & Garanti:** Kullandığımız tüm kamera, kayıt cihazı ve ekipmanlar 2 yıl resmi garantilidir.
+- **⚡ Temiz ve Profesyonel Montaj:** Kablo kanallı, estetiği bozmayan, profesyonel standartlarda titiz montaj.
+- **📞 Hızlı Teknik Destek:** Montaj sonrasında da yanınızdayız. Olası arıza ve soru işaretlerinizde doğrudan teknik destek sağlıyoruz.
 
 ---
 
-## 🚀 Kurulum ve Yerel Çalıştırma
+## 🔄 4 Adımda Kolay Kurulum Süreci
 
-Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları izleyin:
-
-### 1. Depoyu Klonlayın
-
-```bash
-git clone https://github.com/altuneleren/hdkguvenlik.git
-cd hdkguvenlik
-```
-
-### 2. Bağımlılıkları Yükleyin
-
-```bash
-npm install
-```
-
-### 3. Geliştirme Sunucusunu Başlatın
-
-```bash
-npm run dev
-```
-
-Tarayıcınızda [http://localhost:3000](http://localhost:3000) adresini açarak siteyi görüntüleyebilirsiniz.
+1. **İletişim & Keşif Talebi:** Telefon veya WhatsApp üzerinden bize ulaşın, keşif randevunuzu oluşturalım.
+2. **Yerinde İnceleme:** Uzman ekibimiz mekanınızı ziyaret ederek en doğru açıları ve kamera noktalarını belirlesin.
+3. **Teklif & Onay:** İhtiyacınıza en uygun ürünlerle hazırlanan şeffaf fiyat teklifini onaylayın.
+4. **Montaj & Teslimat:** Aynı hafta içerisinde temiz montaj yapılır, mobil uygulamanız telefonunuza kurulur ve sistem çalışır vaziyette teslim edilir.
 
 ---
 
-## 🔧 Kullanılabilir Komutlar
+## 📍 Hizmet Bölgelerimiz
 
-- `npm run dev` — Geliştirme sunucusunu başlatır (`localhost:3000`).
-- `npm run build` — Üretim (production) derlemesini hazırlar ve tip denetimlerini çalıştırır.
-- `npm run start` — Derlenmiş üretim sunucusunu ayağa kaldırır.
-- `npm run lint` — ESLint ile kod kalite kontrollerini yapar.
+HDK Güvenlik, Amasya ili ve tüm ilçelerinde aktif olarak hizmet vermektedir:
 
----
-
-## 🔐 Yönetici Paneli (`/admin`)
-
-- Müşteriler keşif formu doldurduğunda talepler `src/data/leads.json` dosyasına kaydedilir ve bildirim sistemine iletilir.
-- `http://localhost:3000/admin` (veya canlı sitenizde `/admin`) adresine giderek gelen tüm talepleri yönetebilir, arayabilir ve CSV formatında indirebilirsiniz.
+- **Amasya (Merkez)**
+- **Merzifon**
+- **Suluova**
+- **Taşova**
+- **Gümüşhacıköy**
+- **Göynücek**
+- **Hamamözü**
 
 ---
 
-## 🌐 Dağıtım (Vercel Deployment)
+## 📞 İletişim & Ücretsiz Keşif
 
-Proje Vercel ile tam entegre çalışacak şekilde optimize edilmiştir:
+Güvenlik ihtiyaçlarınız, fiyat teklifleri ve ücretsiz keşif randevusu için bize dilediğiniz zaman ulaşabilirsiniz:
 
-1. [Vercel](https://vercel.com/) paneline giriş yapın.
-2. `hdkguvenlik` GitHub deposunu bağlayın.
-3. Framework olarak **Next.js** seçili olduğundan emin olun.
-4. **Deploy** butonuna tıklayın. Her yeni Git `push` işleminde siteniz otomatik olarak derlenip güncellenecektir.
-
----
-
-## 📞 İletişim & Firma Bilgileri
-
-- **Firma:** HDK Güvenlik Kamera ve Alarm Sistemleri
-- **Yetkili / Telefon:** +90 537 256 87 56
-- **Bölge:** Amasya (Merkez, Merzifon, Suluova, Taşova, Gümüşhacıköy, Göynücek, Hamamözü)
-- **Hizmetler:** IP Kamera, AHD Kamera, Yangın Alarmı, Hırsız Alarmı, Akıllı Ev Sistemleri, Yıllık Bakım ve Teknik Servis
+- **Firma Ünvanı:** HDK Güvenlik Kamera & Alarm Sistemleri
+- **Telefon / GSM:** [+90 537 256 87 56](tel:+905372568756)
+- **WhatsApp Destek:** [+90 537 256 87 56](https://wa.me/905372568756)
+- **Hizmet Saatleri:** Pazartesi – Cumartesi: 08:30 – 19:00 *(Acil Servis: 7/24 Destek)*
+- **Bölge:** Amasya / Türkiye
 
 ---
 
-*© 2026 HDK Güvenlik. Tüm hakları saklıdır.*
+*HDK Güvenlik — Güvenliğiniz Bizim Önceliğimizdir.*
