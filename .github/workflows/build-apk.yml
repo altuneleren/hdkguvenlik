@@ -1,1 +1,38 @@
+name: 📱 HDK Güvenlik APK Oluşturucu
 
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'android/**'
+
+jobs:
+  build:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Depoyu Klonla
+        uses: actions/checkout@v4
+
+      - name: ☕ Java 17 Kur
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: 🤖 Android SDK Kurulumu
+        uses: android-actions/setup-android@v3
+
+      - name: 🏗️ Gradle ile Debug APK Derle
+        run: |
+          cd android
+          gradle wrapper
+          ./gradlew assembleDebug --stacktrace
+
+      - name: 📦 APK Dosyasını Yükle (Artifact)
+        uses: actions/upload-artifact@v4
+        with:
+          name: hdk-guvenlik-app
+          path: android/app/build/outputs/apk/debug/*.apk
+          retention-days: 30
