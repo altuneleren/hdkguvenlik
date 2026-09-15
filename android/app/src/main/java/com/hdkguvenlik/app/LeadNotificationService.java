@@ -1,5 +1,6 @@
 package com.hdkguvenlik.app;
 
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -12,6 +13,8 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
+import android.os.PowerManager;
+import android.os.SystemClock;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
@@ -145,6 +148,18 @@ public class LeadNotificationService extends Service {
     }
 
     private void showLeadAlert(String title, String message) {
+        // Telefon ekranı kapalı ve kilitli olsa dahi ekranı ve işlemciyi anında uyandır
+        try {
+            PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+            if (pm != null) {
+                PowerManager.WakeLock wl = pm.newWakeLock(
+                        PowerManager.PARTIAL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP | PowerManager.ON_AFTER_RELEASE,
+                        "HDKGuvenlik:LeadAlertWakeLock"
+                );
+                wl.acquire(10000); // 10 saniye boyunca uyanık tut
+            }
+        } catch (Exception ignored) {}
+
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         if (manager == null) return;
 
@@ -199,9 +214,48 @@ public class LeadNotificationService extends Service {
     }
 
     @Override
+    public void onTaskRemoved(Intent rootIntent) {
+        super.onTaskRemoved(rootIntent);
+        // Kullanıcı uygulamayı son uygulamalardan kapattığında (swipe) servisi anında yeniden canlandır
+        try {
+            Intent restartServiceIntent = new Intent(getApplicationContext(), LeadNotificationService.class);
+            restartServiceIntent.setPackage(getPackageName());
+            PendingIntent restartPending = PendingIntent.getService(
+                    getApplicationContext(), 1, restartServiceIntent,
+                    PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE
+            );
+            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            if (alarmManager != null) {
+                alarmManager.set(
+                        AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                        SystemClock.elapsedRealtime() + 1000,
+                        restartPending
+                );
+            }
+        } catch (Exception ignored) {}
+    }
+
+    @Override
     public void onDestroy() {
         isRunning = false;
         if (listenerThread != null) listenerThread.interrupt();
+        // Servis beklenmedik şekilde durursa 2 saniye sonra otomatik ayağa kaldır
+        try {
+            Intent restartServiceIntent = new Intent(getApplicationContext(), LeadNotificationService.class);
+            restartServiceIntent.setPackage(getPackageName());
+            PendingIntent restartPending = PendingIntent.getService(
+                    getApplicationContext(), 1, restartServiceIntent,
+                    PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE
+            );
+            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            if (alarmManager != null) {
+                alarmManager.set(
+                        AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                        SystemClock.elapsedRealtime() + 2000,
+                        restartPending
+                );
+            }
+        } catch (Exception ignored) {}
         super.onDestroy();
     }
 
