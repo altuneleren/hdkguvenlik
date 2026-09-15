@@ -301,6 +301,13 @@ export default function AdminPage() {
           </Link>
 
           <div className="flex items-center gap-2 sm:gap-3">
+            <button
+              onClick={() => setIsNotifyModalOpen(true)}
+              className="inline-flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300 bg-amber-500/10 hover:bg-amber-500/20 px-3 py-1.5 rounded-lg border border-amber-500/30 transition-all font-medium cursor-pointer"
+            >
+              <Smartphone className="w-3.5 h-3.5" />
+              <span>Mobil APK & Bildirim</span>
+            </button>
             <Link
               href="/"
               className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-lg border border-slate-700 transition-all font-medium"
@@ -637,12 +644,12 @@ export default function AdminPage() {
           <div className="bg-slate-900 border border-slate-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl space-y-6">
             <div className="flex items-center justify-between border-b border-slate-800 pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-blue-600/20 border border-blue-500/30 text-blue-400 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-2xl bg-red-600/20 border border-red-500/30 text-red-500 flex items-center justify-center">
                   <Smartphone className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white">Telefona Anlık Bildirim Kurulumu</h3>
-                  <p className="text-xs text-slate-400">Yeni keşif talepleri doğrudan cebinize düşsün</p>
+                  <h3 className="text-base font-bold text-white">HDK Güvenlik Android Uygulaması (APK)</h3>
+                  <p className="text-xs text-slate-400">Harici uygulamalara gerek olmadan, doğrudan kendi uygulamanızla bildirim alın</p>
                 </div>
               </div>
               <button
@@ -656,50 +663,47 @@ export default function AdminPage() {
             {/* Steps */}
             <div className="space-y-3.5 text-xs">
               <div className="flex items-start gap-3 p-3.5 bg-slate-800/60 rounded-xl border border-slate-800">
-                <span className="w-6 h-6 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center shrink-0 text-xs">
+                <span className="w-6 h-6 rounded-full bg-red-600 text-white font-bold flex items-center justify-center shrink-0 text-xs">
                   1
                 </span>
-                <div>
-                  <div className="font-bold text-white">Android Uygulamasını Yükleyin</div>
+                <div className="flex-1">
+                  <div className="font-bold text-white">HDK Güvenlik APK Dosyasını İndirin</div>
                   <div className="text-slate-400 mt-0.5">
-                    Google Play Store'dan ücretsiz ve açık kaynaklı <strong>ntfy</strong> uygulamasını indirin. (Üyelik veya kayıt gerekmez).
+                    Firmanıza özel derlenen <strong>HDK Güvenlik Panel</strong> Android uygulamasını indirin.
                   </div>
                   <a
-                    href="https://play.google.com/store/apps/details?id=io.heckel.ntfy"
+                    href="https://github.com/altuneleren/hdkguvenlik/actions"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[11px] text-blue-400 hover:underline mt-1 font-semibold"
+                    className="inline-flex items-center gap-1.5 text-xs text-red-400 hover:text-red-300 font-semibold bg-red-500/10 border border-red-500/30 px-3 py-1.5 rounded-lg mt-2 transition-all"
                   >
-                    <span>Google Play'de Gör</span>
-                    <ExternalLink className="w-3 h-3" />
+                    <Download className="w-3.5 h-3.5" />
+                    <span>APK İndirme Sayfası (GitHub Releases)</span>
+                    <ExternalLink className="w-3 h-3 ml-0.5" />
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-3 p-3.5 bg-slate-800/60 rounded-xl border border-slate-800">
-                <span className="w-6 h-6 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center shrink-0 text-xs">
+                <span className="w-6 h-6 rounded-full bg-red-600 text-white font-bold flex items-center justify-center shrink-0 text-xs">
                   2
                 </span>
                 <div className="flex-1">
-                  <div className="font-bold text-white">HDK Bildirim Kanalına Abone Olun</div>
+                  <div className="font-bold text-white">Telefona Kurun ve Bildirim İznini Verin</div>
                   <div className="text-slate-400 mt-0.5">
-                    Uygulamayı açın, sağ alttaki <strong>"+"</strong> (Abone Ol) simgesine basın ve konu adına şunu yazın:
-                  </div>
-                  <div className="mt-2 p-2.5 bg-slate-950 rounded-lg border border-slate-700 font-mono text-emerald-400 font-bold flex items-center justify-between text-xs">
-                    <span>hdk-guvenlik-leads</span>
-                    <span className="text-[10px] text-slate-500">Kanal Adı</span>
+                    İndirilen <code>hdk-guvenlik.apk</code> dosyasına dokunun ve <strong>"Yükle"</strong> seçeneğini seçin. Uygulama ilk açıldığında ekrana gelen <strong>"Bildirimlere İzin Ver"</strong> onayını verin.
                   </div>
                 </div>
               </div>
 
               <div className="flex items-start gap-3 p-3.5 bg-slate-800/60 rounded-xl border border-slate-800">
-                <span className="w-6 h-6 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center shrink-0 text-xs">
+                <span className="w-6 h-6 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center shrink-0 text-xs">
                   3
                 </span>
                 <div>
-                  <div className="font-bold text-white">Hazır! Otomatik Bildirim Alacaksınız</div>
+                  <div className="font-bold text-white">Hazır! 7/24 Anlık Sesli ve Titreşimli Alarm</div>
                   <div className="text-slate-400 mt-0.5">
-                    Müşteri keşif formu doldurduğu an telefonunuz sesli/titreşimli olarak uyanacak; kilit ekranında doğrudan <strong>"Müşteriyi Ara"</strong> butonu çıkacaktır.
+                    Müşteri siteden keşif formu doldurduğu an telefonunuz sesli/titreşimli olarak çalar. Kilit ekranında doğrudan <strong>"📞 Hemen Ara"</strong> veya <strong>"💬 WhatsApp"</strong> butonlarıyla saniyeler içinde müşteriye ulaşabilirsiniz.
                   </div>
                 </div>
               </div>
@@ -718,7 +722,7 @@ export default function AdminPage() {
                   type="button"
                   onClick={handleTestNotification}
                   disabled={isTestingNotify}
-                  className="flex-1 py-3 px-4 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg transition-all cursor-pointer"
+                  className="flex-1 py-3 px-4 bg-red-600 hover:bg-red-500 disabled:opacity-50 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-red-600/20 transition-all cursor-pointer"
                 >
                   <Bell className="w-4 h-4" />
                   <span>{isTestingNotify ? "Gönderiliyor..." : "🔔 Telefona Test Bildirimi Gönder"}</span>
