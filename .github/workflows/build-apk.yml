@@ -22,20 +22,19 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: 🐘 Gradle 8.6 Kurulumu
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.6'
+
       - name: 📝 Android Lisanslarını Kabul Et
         run: |
           yes | sdkmanager --licenses 2>/dev/null || true
 
-      - name: 🏗️ Gradle Wrapper Oluştur ve İzin Ver
-        run: |
-          cd android
-          gradle wrapper
-          chmod +x gradlew
-
       - name: 🚀 APK Derle (assembleDebug)
         run: |
           cd android
-          ./gradlew assembleDebug --stacktrace
+          gradle assembleDebug --stacktrace
 
       - name: 📦 APK Dosyasını Yükle (Artifact)
         uses: actions/upload-artifact@v4
