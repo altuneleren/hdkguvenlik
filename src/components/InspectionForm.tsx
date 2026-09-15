@@ -103,13 +103,13 @@ export default function InspectionForm() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-semibold uppercase tracking-wider mb-4">
             <ShieldCheck className="w-4 h-4" />
-            <span>%100 Ücretsiz & Taahhütsüz</span>
+            <span>Amasya &amp; Çevre İllerde %100 Ücretsiz &amp; Taahhütsüz Keşif</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Ücretsiz Yerinde Keşif Talebi
+            Amasya Yerinde Kamera Keşif Talebi
           </h2>
           <p className="mt-4 text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Mekanınıza özel en doğru kamera ve güvenlik çözümlerini belirlemek için uzman mühendislerimiz adresinize gelsin, sıfır maliyetle projelendirsin.
+            Amasya Merkez, Merzifon, Suluova, Taşova, Gümüşhacıköy ve tüm çevre ilçelerde mekanınıza özel en doğru kamera ve alarm çözümünü belirlemek için uzman ekibimiz adresinize gelsin, sıfır maliyetle projelendirsin.
           </p>
         </div>
 

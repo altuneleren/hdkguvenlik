@@ -149,22 +149,22 @@ export default function Hero() {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 dark:bg-red-950/60 border border-red-100 dark:border-red-900/60 shadow-xs mb-6 hover:bg-red-100/70 dark:hover:bg-red-900/60 transition-colors cursor-pointer">
               <span className="flex h-2 w-2 rounded-full bg-red-600 animate-pulse" />
               <span className="text-xs font-semibold text-slate-900 dark:text-slate-200">
-                HDK Güvenlik Alarm & Kamera Sistemleri
+                Amasya &amp; Tüm İlçelerde Yetkili Güvenlik Firması
               </span>
-              <span className="text-xs text-red-600 dark:text-red-400 font-medium">Keşfet &rarr;</span>
+              <span className="text-xs text-red-600 dark:text-red-400 font-medium">Ücretsiz Keşif &rarr;</span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight max-w-4xl leading-[1.15] mb-6">
-              Gözünüz{" "}
+              Amasya Güvenlik Kamerası &amp;{" "}
               <span className="bg-gradient-to-r from-red-600 via-rose-600 to-red-500 bg-clip-text text-transparent">
-                Arkada Kalmasın.
+                Kamera Sistemleri Firması
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl font-normal leading-relaxed mb-8">
-              HDK Güvenlik olarak, yaşam ve çalışma alanlarınızı yüksek çözünürlüklü kamera sistemleriyle donatıyoruz. Profesyonel kurulum ve kesintisiz izleme altyapısıyla kontrol daima sizde.
+              Amasya Merkez, Merzifon, Suluova ve tüm ilçelerde ev ve iş yerinize özel yüksek çözünürlüklü güvenlik kamerası, 4K gece görüşlü IP kamera sistemleri ve akıllı hırsız alarmı kurulumu. Ücretsiz keşif, anahtar teslim montaj ve 2 yıl birebir garanti ile HDK Güvenlik güvencesi.
             </p>
 
             {/* Action Buttons */}

@@ -26,6 +26,7 @@ export default function Navbar() {
     if (href.startsWith("/#") || href.startsWith("#")) {
       const targetId = href.replace("/#", "").replace("#", "");
 
+      // Eğer zaten ana sayfadaysak sayfayı yenilemeden o bölüme kaydır
       if (pathname === "/") {
         e.preventDefault();
         const element = document.getElementById(targetId);
@@ -39,12 +40,14 @@ export default function Navbar() {
             behavior: "smooth",
           });
 
+          // Sayfayı yenilemeden URL hash'ini güncelle
           window.history.pushState(null, "", `#${targetId}`);
         }
       }
     }
   };
 
+  // Harici link veya başka sayfadan hash ile gelindiğinde yumuşak kaydır
   useEffect(() => {
     if (typeof window !== "undefined" && window.location.hash) {
       const targetId = window.location.hash.substring(1);
@@ -68,8 +71,8 @@ export default function Navbar() {
     encodeURIComponent("Merhaba HDK Güvenlik, kamera ve güvenlik sistemleri hakkında bilgi ve fiyat teklifi almak istiyorum.");
 
   const navLinks = [
-    { name: "Paketler & Fiyatlar", href: "/#fiyatlar" },
     { name: "Paket Sihirbazı", href: "/#sihirbaz" },
+    { name: "Paketler & Fiyatlar", href: "/#fiyatlar" },
     { name: "Karşılaştır", href: "/#karsilastir" },
     { name: "HDD Hesaplayıcı", href: "/#hesaplayici" },
     { name: "Ücretsiz Keşif", href: "/#kesif-formu" },
@@ -114,6 +117,7 @@ export default function Navbar() {
     },
   ];
 
+  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -188,6 +192,7 @@ export default function Navbar() {
                 />
               </button>
 
+              {/* Dropdown Menu Modal/Card */}
               {legalDropdownOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-84 pt-2 animate-in fade-in slide-in-from-top-2 duration-150 z-50">
                   <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200/90 dark:border-slate-800 p-2.5 space-y-1 backdrop-blur-xl">
